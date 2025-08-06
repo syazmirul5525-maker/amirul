@@ -9,7 +9,8 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elegant Digital Business Card</title>
+<title>E106 Vcard</title>
+<!-- Paste this into your existing HTML document, replacing the entire <style> block -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -22,121 +23,104 @@
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom right, #000000, #1a1a1a);
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-left: 150px;
+    padding: 20px;
   }
-.video-background {
-  position: fixed; /* or absolute if within a card */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Behind everything */
-  overflow: hidden;
-}
 
-.video-background video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
 
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5); /* semi-transparent black */
-  z-index: -1;
-}
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-
-
-.logo-bar {
-  background: #003366; /* Exchange106 dark blue */
-  padding: 20px 5px;
-  text-align: center;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.logo-bar img {
-  height: 40px;
-  object-fit: contain;
-}
-
-
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+  }
 
   .card {
-    width: 350px;
-    background: #003366;  /* Exchange106 dark blue */
+    width: 100%;
+    max-width: 350px;
+    background: #003366;
     border-radius: 20px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.6);
-    overflow: visible;
-    position: relative;
     color: white;
+    overflow: hidden;
   }
 
-  /* Top Section with profile picture background */
-  .top-section {
-    position: relative;
-    height: 380px;
-    background: url('Profile.jpeg') center/cover no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 10px 20px 20px;
-    color: white;
+  .logo-bar {
+    background: #003366;
+    padding: 20px 5px;
+    text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
 
-  
-     .bottom-section p {
+  .logo-bar img {
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .top-section {
+    position: relative;
+    height: 380px;
+    background: url('Profile.jpeg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 20px 20px;
+  }
+
+  .top-curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 2;
+    transform: rotate(180deg);
+    transform-origin: center;
+  }
+
+  .top-curve svg,
+  .curve svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .name-position {
+    text-align: left;
+    padding: 5px 10px;
+    margin-top: 5px;
+  }
+
+  .name-position h2,
+  .name-position p {
     color: white;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    font-weight: 600;
+    margin: 0;
   }
 
-.top-curve {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height:40px;
-  z-index: 2;
-  transform: rotate(180deg);
-  transform-origin: center;
-}
-
-.top-curve svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.name-position {
-  text-align: left;
-  color: white;
-  padding: 5px 10px;
-  margin-top: 5px;
-  display: inline-block;
-  }
-
-.name-position h2, 
-.name-position p {
-  color: white;
-  -webkit-text-stroke: 1px black; /* black outline stroke */
-  -webkit-text-fill-color: white; /* fill color */
-  font-weight: 600;
-  margin: 0;
-  text-align: left;
-}
-
-
-  /* Curved separator */
   .curve {
     position: absolute;
     bottom: 0;
@@ -148,67 +132,41 @@
     transform-origin: center;
   }
 
-  .curve svg {
-    display: block;
-    width: 100%;
-    height: 100%;
+  .bottom-section {
+    padding: 40px 30px 20px;
+    background: #003366;
+    text-align: center;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .bottom-section {
-  padding: 40px 30px 20px;
-  background: #003366;
-  text-align: center;
-  border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 20px;
-  position: relative;
-  z-index: 1;
-  margin-top: -6px;
-  color: white;
+  .logo-container {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
 
-  /* NEW FLEX ALIGNMENT */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.logo-container {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
+  .contact-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 
+  .contact-section p,
+  .contact-section a {
+    margin: 0;
+    color: white;
+    font-size: 0.95rem;
+  }
 
-.contact-section {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.contact-section p,
-.contact-section a {
-  margin: 0;
-  color: white;
-  font-size: 0.95rem;
-}
-
-.save-contact {
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.save-contact:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-
-  /* Buttons */
-  .save-contact, .official-website-button {
+  .save-contact,
+  .official-website-button {
     margin: 20px 0 15px;
     padding: 12px 28px;
     border: 2px solid white;
@@ -218,74 +176,84 @@
     border-radius: 30px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    text-align: center;
+    transition: all 0.3s ease;
     text-decoration: none;
-    user-select: none;
-    box-shadow: none;
   }
 
-  .save-contact:hover, 
+  .save-contact:hover,
   .official-website-button:hover {
     background-color: white;
     color: #003366;
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.5);
   }
 
-  .save-contact:focus,
-  .official-website-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
-  }
-
-  /* Social icons */
   .contact {
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .contact a {
-  color: white;
-  font-size: 1.6rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact a:hover {
-  color: #99ccff;
-}
-
-
-  /* Responsive */
-  @media (max-width: 400px) {
-    .card {
-      width: 90%;
-    }
-    body {
-      justify-content: center;
-      padding-left: 50;
-    }
+    color: white;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
 
+  .contact a:hover {
+    color: #99ccff;
+  }
 
-.logo {
-  height: 30px; /* smaller size */
-  width: auto;
-  object-fit: contain;
-}
+  .divider-line {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10px auto;
+    width: 80%;
+  }
 
-.divider-line {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* white with transparency */
-  margin: 10px auto;
-  width: 80%;
-}
+  /* Responsive */
+  @media (max-width: 480px) {
+    .card {
+      max-width: 100%;
+      margin: 0 10px;
+    }
 
+    .top-section {
+      height: 300px;
+      padding: 10px 15px;
+    }
 
+    .name-position h2 {
+      font-size: 1.2rem;
+    }
+
+    .name-position p {
+      font-size: 0.85rem;
+    }
+
+    .save-contact,
+    .official-website-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact a {
+      font-size: 1.4rem;
+    }
+
+    .bottom-section {
+      padding: 30px 15px 20px;
+    }
+
+    .contact-section p,
+    .contact-section a {
+      font-size: 0.85rem;
+    }
+  }
 </style>
+
 </head>
 <body>
 
@@ -400,3 +368,4 @@ END:VCARD`;
 
 </body>
 </html>
+
